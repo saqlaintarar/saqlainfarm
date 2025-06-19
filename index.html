@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saqlain Shahzad | Digital Farming Innovator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --tech-blue: #3498db;
+            --agri-green: #27ae60;
+            --dark-text: #2c3e50;
+            --light-bg: #f9f9f9;
+            --accent-orange: #e67e22;
+            --accent-purple: #9b59b6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .preloader.fade-out {
+            opacity: 0;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--agri-green);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Header */
+        .hero-slider {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            animation: zoom 30s infinite;
+        }
+        
+        @keyframes zoom {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+            width: 90%;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--tech-blue), var(--agri-green), var(--accent-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 8s ease infinite;
+            background-size: 300% 300%;
+        }
+        
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--tech-blue), var(--agri-green));
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--agri-green), var(--tech-blue));
+            z-index: -1;
+            transition: opacity 0.3s;
+            opacity: 0;
+        }
+        
+        .btn:hover::after {
+            opacity: 1;
+        }
+        
+        .social-floating {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            color: var(--dark-text);
+            font-size: 1.3rem;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .social-icon.facebook:hover {
+            background: #3b5998;
+            color: white;
+        }
+        
+        .social-icon.instagram:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+        }
+        
+        .social-icon.tiktok:hover {
+            background: #000;
+            color: white;
+        }
+        
+        .social-icon.linkedin:hover {
+            background: #0077b5;
+            color: white;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s;
+        }
+        
+        nav.scrolled {
+            background-color: rgba(255,255,255,0.95);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: var(--dark-text);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--agri-green);
+            margin-left: 5px;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--agri-green);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2.5rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--agri-green);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--agri-green);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Sections */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            display: inline-block;
+            padding-bottom: 1.2rem;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--tech-blue), var(--agri-green));
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        
+        /* About Section */
+        #about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--agri-green);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.5s;
+            position: relative;
+        }
+        
+        .about-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.8s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(to right, var(--tech-blue), var(--accent-purple));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Journey Section */
+        #journey {
+            background-color: var(--light-bg);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--tech-blue), var(--agri-green));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            padding: 1.5rem 2.5rem;
+            position: relative;
+            width: 50%;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 2rem;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 6px solid var(--agri-green);
+            border-radius: 50%;
+            top: 30px;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -12px;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--agri-green);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+        
+        /* Enhanced Gallery Section */
+        #gallery {
+            background-color: white;
+            padding: 6rem 0;
+        }
+
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .gallery-tab {
+            padding: 0.8rem 1.5rem;
+            background: var(--light-bg);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .gallery-tab.active {
+            background: var(--agri-green);
+            color: white;
+            border-color: var(--agri-green);
+        }
+
+        .gallery-tab:hover:not(.active) {
+            border-color: var(--agri-green);
+        }
+
+        .gallery-container {
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        /* Slideshow Gallery */
+        .slideshow-gallery {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .slideshow-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slideshow-slide.active {
+            opacity: 1;
+        }
+
+        .slideshow-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.5s;
+        }
+
+        .slideshow-slide.active .slideshow-caption {
+            transform: translateY(0);
+        }
+
+        .slideshow-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .slideshow-nav button {
+            background: rgba(255,255,255,0.3);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .slideshow-nav button:hover {
+            background: rgba(255,255,255,0.5);
+            transform: scale(1.1);
+        }
+
+        .slideshow-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .slideshow-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .slideshow-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* Grid Gallery */
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            aspect-ratio: 4/3;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+
+        .grid-item.video-item::before {
+            content: '\f04b';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 3rem;
+            opacity: 0.8;
+            z-index: 1;
+            transition: all 0.3s;
+        }
+
+        .grid-item:hover.video-item::before {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .grid-item:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transform: translateY(-5px);
+        }
+
+        .grid-item img, .grid-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s;
+        }
+
+        .grid-item:hover img, .grid-item:hover video {
+            transform: scale(1.1);
+        }
+
+        .grid-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.5s;
+        }
+
+        .grid-item:hover .grid-caption {
+            transform: translateY(0);
+        }
+
+        /* Add More Photos Button */
+        .add-photos-btn {
+            display: block;
+            margin: 3rem auto 0;
+            background: var(--tech-blue);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .add-photos-btn:hover {
+            background: var(--agri-green);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Video Gallery Page Styles */
+        .video-gallery-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .video-gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .close-gallery {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--dark-text);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 2;
+        }
+
+        .close-gallery:hover {
+            color: var(--agri-green);
+            transform: rotate(90deg);
+        }
+
+        .video-gallery-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark-text);
+        }
+
+        .video-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-gallery-item video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-gallery-caption {
+            padding: 1rem;
+            background: white;
+            border-top: 3px solid var(--agri-green);
+        }
+
+        .video-gallery-caption h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+
+        .video-gallery-caption p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .machinery-section {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid #eee;
+        }
+
+        .machinery-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark-text);
+        }
+
+        /* Goals Section */
+        #goals {
+            background-color: var(--light-bg);
+        }
+        
+        .goals-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .goal-card {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .goal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--tech-blue), var(--agri-green));
+            transition: height 0.3s;
+            z-index: -1;
+        }
+        
+        .goal-card:hover::before {
+            height: 100%;
+        }
+        
+        .goal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            color: white;
+        }
+        
+        .goal-card:hover h3,
+        .goal-card:hover p {
+            color: white;
+        }
+        
+        .goal-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--agri-green);
+            transition: all 0.5s;
+        }
+        
+        .goal-card:hover .goal-icon {
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .goal-card h3 {
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .goal-card p {
+            transition: color 0.3s;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background-color: white;
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 4rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--agri-green);
+        }
+        
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .contact-details {
+            margin-top: 2rem;
+        }
+        
+        .contact-details p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            margin-right: 10px;
+            color: var(--agri-green);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: var(--light-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--agri-green);
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+        }
+        
+        .form-group textarea {
+            height: 180px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--dark-text), #1a1a2e);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: var(--agri-green);
+        }
+        
+        .footer-text {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .social-links {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .social-links a:hover {
+            background: var(--agri-green);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--agri-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--tech-blue);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-content::after {
+                left: 19px !important;
+            }
+
+            .slideshow-gallery {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .tagline {
+                font-size: 1.4rem;
+            }
+            
+            .nav-container {
+                flex-direction: row;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 3rem;
+                transition: left 0.3s;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+            
+            .hamburger {
+                display: block;
+                font-size: 1.8rem;
+            }
+            
+            .social-floating {
+                display: none;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+
+            .slideshow-gallery {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .about-image {
+                width: 100%;
+            }
+
+            .slideshow-gallery {
+                height: 250px;
+            }
+
+            .slideshow-nav button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header with Hero Slider -->
+    <header class="hero-slider">
+        <div class="slide" style="background-image: url('images/tractor.jpg')"></div>
+        <div class="slide" style="background-image: url('images/wheat.jpg')"></div>
+        <div class="slide" style="background-image: url('images/cousin.jpg')"></div>
+        <div class="slide" style="background-image: url('images/tractor1.jpg')"></div>
+        <div class="slide" style="background-image: url('images/1.jpeg')"></div>
+        <div class="slide" style="background-image: url('images/2.jpeg')"></div>
+        <div class="slide" style="background-image: url('images/3.jpeg')"></div>
+        
+        <div class="overlay"></div>
+        <div class="header-content">
+            <h1>Saqlain Shahzad</h1>
+            <p class="tagline">Bridging Software Engineering with Digital Agriculture</p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="#about" class="btn">Explore My Journey</a>
+                <a href="#contact" class="btn" style="background: transparent; border: 2px solid white;">Contact Me</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Social Media -->
+    <div class="social-floating">
+        <a href="https://www.facebook.com/share/1AmhSHbDAd/" target="_blank" class="social-icon facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/farmer_university/" target="_blank" class="social-icon instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@tarar_dairy_farm_dk?_t=ZS-8xKIKzUHy1h&_r=1" target="_blank" class="social-icon tiktok">
+            <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/saqlain-shahzad-b145a6202/" target="_blank" class="social-icon linkedin">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>Saqlain<span>AgriTech</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#gallery">Farm Life</a></li>
+                <li><a href="#goals">Goals</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Story</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>From Farm Fields to Digital Solutions</h3>
+                    <p>Growing up in Punjab, Pakistan, I spent my childhood working on our family farm, tending to buffaloes, operating machinery, and understanding the challenges of traditional agriculture. These experiences gave me firsthand knowledge of the inefficiencies in farming practices that technology could solve.</p>
+                    <p>My passion for technology led me to pursue a Bachelor's in Software Engineering, where I specialized in AI and Data Science. Now, I'm combining these two worlds - applying my technical skills to revolutionize agriculture through digital farming innovations.</p>
+                    <p>My final year project, a Sign Language Recognition App using computer vision, demonstrated my ability to create practical AI solutions - a skill I plan to transfer to agricultural applications like crop monitoring and precision farming.</p>
+                    
+                    <div class="skills-container">
+                        <span class="skill-tag">Artificial Intelligence</span>
+                        <span class="skill-tag">IoT Solutions</span>
+                        <span class="skill-tag">Data Science</span>
+                        <span class="skill-tag">Precision Agriculture</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Farm Automation</span>
+                    </div>
+                </div>
+                <div class="about-image floating">
+                    <img src="images/wheat.jpg" alt="Saqlain Shahzad">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section id="journey">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Journey</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1999 - 2019</div>
+                        <h3>Farm Roots</h3>
+                        <p>Grew up working on our family farm, learning traditional agricultural practices while developing an interest in technology's potential to solve farming challenges.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2019 - 2023</div>
+                        <h3>Software Engineering Degree</h3>
+                        <p>Earned my BSc in Software Engineering from University of Gujrat, specializing in AI, Data Science, and Database Systems. Completed courses in Data Mining, Image Processing, and AI fundamentals.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023</div>
+                        <h3>Sign Language Recognition Project</h3>
+                        <p>Developed an AI-powered app using computer vision and deep learning, demonstrating my ability to create practical solutions - skills transferable to agricultural tech.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024</div>
+                        <h3>Digital Learning Initiative</h3>
+                        <p>Selected for Pakistan's Digital Learning and Skills Enrichment Initiative (DLSEI), gaining advanced certifications in AI and Data Science from IBM and Meta professionals.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Future</div>
+                        <h3>Digital Farming Specialization</h3>
+                        <p>Planning to merge my tech expertise with agricultural knowledge through specialized education in Digital Farming, aiming to develop solutions for precision agriculture in Pakistan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Farming Life</h2>
+            </div>
+            
+            <div class="gallery-tabs">
+                <div class="gallery-tab active" data-view="slideshow">Slideshow</div>
+                <div class="gallery-tab" data-view="grid">Grid View</div>
+                <div class="gallery-tab" data-view="videos">Videos</div>
+                <div class="gallery-tab" onclick="openVideoGallery()">View All Media</div>
+            </div>
+            
+            <div class="gallery-container">
+                <!-- Slideshow View -->
+                <div class="slideshow-gallery" id="slideshow-view">
+                    <div class="slideshow-slide active" style="background-image: url('images/buffalow.jpeg')">
+                        <div class="slideshow-caption">Our dairy buffaloes - the heart of our farm</div>
+                    </div>
+                    <div class="slideshow-slide" style="background-image: url('images/wheat.jpg')">
+                        <div class="slideshow-caption">Participating in wheat harvesting season</div>
+                    </div>
+                    <div class="slideshow-slide" style="background-image: url('images/machine.jpeg')">
+                        <div class="slideshow-caption">Operating and maintaining farm equipment</div>
+                    </div>
+                    <div class="slideshow-slide" style="background-image: url('images/cousins.jpeg')">
+                        <div class="slideshow-caption">Working alongside my family in the farm</div>
+                    </div>
+                    <div class="slideshow-slide" style="background-image: url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+                        <div class="slideshow-caption">Monitoring crop growth and soil health</div>
+                    </div>
+                    <div class="slideshow-slide" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+                        <div class="slideshow-caption">Exploring tech solutions for farm challenges</div>
+                    </div>
+                    
+                    <div class="slideshow-nav">
+                        <button id="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                        <button id="next-slide"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="slideshow-dots">
+                        <div class="slideshow-dot active" data-index="0"></div>
+                        <div class="slideshow-dot" data-index="1"></div>
+                        <div class="slideshow-dot" data-index="2"></div>
+                        <div class="slideshow-dot" data-index="3"></div>
+                        <div class="slideshow-dot" data-index="4"></div>
+                        <div class="slideshow-dot" data-index="5"></div>
+                    </div>
+                </div>
+                
+                <!-- Grid View -->
+                <div class="grid-gallery" id="grid-view" style="display: none;">
+                    <div class="grid-item">
+                        <img src="images/buffalow3.jpeg" alt="Family buffaloes">
+                        <div class="grid-caption">Our dairy buffaloes - the heart of our farm</div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/wheat.jpg" alt="Harvesting crops">
+                        <div class="grid-caption">Participating in wheat harvesting season</div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/machine.jpeg" alt="Farm machinery">
+                        <div class="grid-caption">Operating and maintaining farm equipment</div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/cousins.jpeg" alt="Family working on farm">
+                        <div class="grid-caption">Working alongside my family in the fields</div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Farm crops">
+                        <div class="grid-caption">Monitoring crop growth and soil health</div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Technology on farm">
+                        <div class="grid-caption">Exploring tech solutions for farm challenges</div>
+                    </div>
+                </div>
+                
+                <!-- Videos View -->
+                <div class="grid-gallery" id="videos-view" style="display: none;">
+                    <div class="grid-item video-item">
+                        <video muted loop>
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-farmer-in-a-wheat-field-1173-large.mp4" type="video/mp4">
+                        </video>
+                        <div class="grid-caption">Working in the wheat fields</div>
+                    </div>
+                    <div class="grid-item video-item">
+                        <video muted loop>
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-tractor-in-agricultural-field-1176-large.mp4" type="video/mp4">
+                        </video>
+                        <div class="grid-caption">Tractor in agricultural field</div>
+                    </div>
+                    <div class="grid-item video-item">
+                        <video muted loop>
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-cows-in-a-rural-field-1175-large.mp4" type="video/mp4">
+                        </video>
+                        <div class="grid-caption">Our livestock in the fields</div>
+                    </div>
+                </div>
+                
+                <button class="add-photos-btn" onclick="openAddPhotosModal()">
+                    <i class="fas fa-plus"></i> Add More Photos/Videos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goals">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Digital Farming Goals</h2>
+            </div>
+            <div class="goals-container">
+                <div class="goal-card">
+                    <div class="goal-icon">🌱</div>
+                    <h3>Precision Agriculture</h3>
+                    <p>Apply my AI and data science skills to develop precision farming techniques that optimize resource usage and increase yields.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-icon">🤖</div>
+                    <h3>Farm Automation</h3>
+                    <p>Design automated systems for irrigation, feeding, and monitoring using IoT and machine learning.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-icon">📊</div>
+                    <h3>Data-Driven Decisions</h3>
+                    <p>Create analytics platforms that help farmers make informed choices based on weather, soil, and market data.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-icon">🌍</div>
+                    <h3>Sustainable Solutions</h3>
+                    <p>Develop technologies that promote sustainable farming practices in Pakistan and beyond.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm excited to discuss how my unique combination of farming experience and technical skills can contribute to the future of digital agriculture.</p>
+                    
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> saqlaintarar586@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +92 3444340583</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Punjab, Pakistan</p>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4>Follow My Journey</h4>
+                        <div class="social-links" style="justify-content: flex-start; gap: 1rem;">
+                            <a href="https://www.facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@yourprofile" target="_blank"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Gallery Page -->
+    <div class="video-gallery-page" id="videoGalleryPage">
+        <div class="video-gallery-container">
+            <span class="close-gallery" onclick="closeVideoGallery()">&times;</span>
+            
+            <div class="video-gallery-title">
+                <h2>My Farming Life in Videos & Photos</h2>
+                <p>Explore my journey through agriculture and technology</p>
+            </div>
+            
+            <div class="video-gallery-grid">
+                <div class="video-gallery-item">
+                    <video controls>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-farmer-in-a-wheat-field-1173-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-gallery-caption">
+                        <h3>Wheat Field Work</h3>
+                        <p>Daily activities in our wheat fields during harvest season</p>
+                    </div>
+                </div>
+                
+                <div class="video-gallery-item">
+                    <video controls>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-tractor-in-agricultural-field-1176-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-gallery-caption">
+                        <h3>Tractor Operations</h3>
+                        <p>Using modern machinery for efficient farming</p>
+                    </div>
+                </div>
+                
+                <div class="video-gallery-item">
+                    <video controls>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-cows-in-a-rural-field-1175-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-gallery-caption">
+                        <h3>Livestock Management</h3>
+                        <p>Caring for our dairy animals in natural surroundings</p>
+                    </div>
+                </div>
+                
+                <div class="video-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Buffaloes">
+                    <div class="video-gallery-caption">
+                        <h3>Dairy Buffaloes</h3>
+                        <p>Our high-quality dairy animals</p>
+                    </div>
+                </div>
+                
+                <div class="video-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Machinery">
+                    <div class="video-gallery-caption">
+                        <h3>Farm Equipment</h3>
+                        <p>Modern tools we use for efficient farming</p>
+                    </div>
+                </div>
+                
+                <div class="video-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Crops">
+                    <div class="video-gallery-caption">
+                        <h3>Crop Monitoring</h3>
+                        <p>Checking growth and health of our crops</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="machinery-section">
+                <h2>Farm Machinery & Technology</h2>
+                <div class="video-gallery-grid">
+                    <div class="video-gallery-item">
+                        <video controls>
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-tractor-in-agricultural-field-1176-large.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-gallery-caption">
+                            <h3>Tractor Operations</h3>
+                            <p>Modern tractor with GPS guidance system</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-gallery-item">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Irrigation System">
+                        <div class="video-gallery-caption">
+                            <h3>Smart Irrigation</h3>
+                            <p>Automated system with soil moisture sensors</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-gallery-item">
+                        <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a9d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Drone">
+                        <div class="video-gallery-caption">
+                            <h3>Agricultural Drone</h3>
+                            <p>For crop monitoring and spraying</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Saqlain<span>AgriTech</span></div>
+                <p class="footer-text">Bridging the gap between technology and agriculture to create sustainable farming solutions for the future.</p>
+                
+                <div class="social-links">
+                    <a href="https://www.facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@yourprofile" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/yourprofile" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+                
+                <p class="copyright">&copy; 2024 Saqlain Shahzad. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+
+        // Hero Slider
+        let heroSlides = document.querySelectorAll('.hero-slider .slide');
+        let heroIndex = 0;
+        
+        function showHeroSlide() {
+            heroSlides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === heroIndex) slide.classList.add('active');
+            });
+            heroIndex = (heroIndex + 1) % heroSlides.length;
+        }
+        
+        showHeroSlide(); // Show first slide
+        setInterval(showHeroSlide, 5000); // Change every 5 seconds
+
+        // Mobile Navigation
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Sticky Navigation
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate Timeline Items on Scroll
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        function checkTimelineItems() {
+            const triggerBottom = window.innerHeight / 5 * 4;
+            
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                
+                if (itemTop < triggerBottom) {
+                    item.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkTimelineItems);
+        checkTimelineItems(); // Check on load
+
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to a server
+            // For demonstration, we'll just show an alert
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Gallery View Tabs
+        const viewTabs = document.querySelectorAll('.gallery-tab[data-view]');
+        const slideshowView = document.getElementById('slideshow-view');
+        const gridView = document.getElementById('grid-view');
+        const videosView = document.getElementById('videos-view');
+
+        viewTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const view = this.dataset.view;
+                
+                // Update active tab
+                viewTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show selected view
+                slideshowView.style.display = 'none';
+                gridView.style.display = 'none';
+                videosView.style.display = 'none';
+                
+                if (view === 'slideshow') {
+                    slideshowView.style.display = 'block';
+                } else if (view === 'grid') {
+                    gridView.style.display = 'grid';
+                } else if (view === 'videos') {
+                    videosView.style.display = 'grid';
+                    // Play all videos when video tab is selected
+                    document.querySelectorAll('#videos-view video').forEach(video => {
+                        video.play();
+                    });
+                }
+            });
+        });
+
+        // Slideshow Functionality
+        const slides = document.querySelectorAll('.slideshow-slide');
+        const dots = document.querySelectorAll('.slideshow-dot');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            let newIndex = (currentSlide + 1) % slides.length;
+            showSlide(newIndex);
+        }
+
+        function prevSlide() {
+            let newIndex = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(newIndex);
+        }
+
+        function startSlideshow() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopSlideshow() {
+            clearInterval(slideInterval);
+        }
+
+        // Initialize slideshow
+        showSlide(0);
+        startSlideshow();
+
+        // Navigation controls
+        document.getElementById('next-slide').addEventListener('click', () => {
+            nextSlide();
+            stopSlideshow();
+            startSlideshow();
+        });
+
+        document.getElementById('prev-slide').addEventListener('click', () => {
+            prevSlide();
+            stopSlideshow();
+            startSlideshow();
+        });
+
+        // Dot navigation
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const slideIndex = parseInt(this.dataset.index);
+                showSlide(slideIndex);
+                stopSlideshow();
+                startSlideshow();
+            });
+        });
+
+        // Pause slideshow when hovering
+        slideshowView.addEventListener('mouseenter', stopSlideshow);
+        slideshowView.addEventListener('mouseleave', startSlideshow);
+
+        // Auto-play videos in main gallery when hovered
+        document.querySelectorAll('.grid-item.video-item').forEach(item => {
+            const video = item.querySelector('video');
+            
+            item.addEventListener('mouseenter', () => {
+                video.play();
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        });
+
+        // Video Gallery Page Functions
+        function openVideoGallery() {
+            document.getElementById('videoGalleryPage').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoGallery() {
+            document.getElementById('videoGalleryPage').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Pause all videos when closing gallery
+            document.querySelectorAll('.video-gallery-item video').forEach(video => {
+                video.pause();
+            });
+        }
+
+        // Close gallery when clicking outside content
+        document.getElementById('videoGalleryPage').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoGallery();
+            }
+        });
+
+        // Add Photos Modal (placeholder function)
+        function openAddPhotosModal() {
+            alert("In a real implementation, this would open a modal to upload new photos/videos. You would need server-side code to handle file uploads.");
+            // This would typically connect to a backend service to upload files
+            // For demonstration, we'll just add a new slide programmatically
+            /*
+            const newSlide = document.createElement('div');
+            newSlide.className = 'slideshow-slide';
+            newSlide.style.backgroundImage = 'url("new-photo.jpg")';
+            newSlide.innerHTML = '<div class="slideshow-caption">New farm photo</div>';
+            slideshowView.insertBefore(newSlide, slideshowView.firstChild);
+            
+            const newDot = document.createElement('div');
+            newDot.className = 'slideshow-dot';
+            newDot.dataset.index = slides.length;
+            document.querySelector('.slideshow-dots').appendChild(newDot);
+            
+            // Update slides and dots arrays
+            slides = document.querySelectorAll('.slideshow-slide');
+            dots = document.querySelectorAll('.slideshow-dot');
+            */
+        }
+    </script>
+</body>
+</html>
